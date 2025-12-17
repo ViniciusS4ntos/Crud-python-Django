@@ -36,21 +36,28 @@ Conforme a organização do projeto:
 Siga os passos abaixo:
 
 ```bash
+## 🚀 Como rodar o projeto
+
+> **⚠️ Requisito de Banco de Dados:** Este projeto utiliza **MySQL**. Certifique-se de que o serviço do MySQL esteja ativo (via XAMPP ou MySQL Installer) e que você tenha criado o esquema (database) no **MySQL Workbench** antes de prosseguir.
+
+```bash
 # 1. Clone o repositório
 $ git clone [https://github.com/ViniciusS4ntos/Crud-python-Django.git](https://github.com/ViniciusS4ntos/Crud-python-Django.git)
 
 # 2. Entre na pasta do projeto
 $ cd Crud-python-Django/crm_django
 
-# 3. Crie e ative um ambiente virtual (venv)
+# 3. Crie e ative o ambiente virtual
 $ python -m venv venv
-# No Windows: venv\Scripts\activate | No Linux: source venv/bin/activate
+# Windows: venv\Scripts\activate | Linux/Mac: source venv/bin/activate
 
-# 4. Instale o Django
-$ pip install django
+# 4. Instale o Django e o conector MySQL
+$ pip install django mysqlclient
 
-# 5. Rode as migrações para preparar o banco de dados
+# 5. Configure o banco no Workbench e ative o SQL
+
+# 6. Rode as migrações
 $ python manage.py migrate
 
-# 6. Inicie o servidor
+# 7. Inicie o servidor
 $ python manage.py runserver
