@@ -1,0 +1,61 @@
+{% extends "clientes/base.html" %}
+
+{% block title %}Editar Cliente{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4 text-warning">✏️ Editar Cliente: {{ cliente.nome }}</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="{{ cliente.nome }}">
+            <div class="form-text">Deixe este campo vazio para manter o nome atual ({{ cliente.nome }}).</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="{{ cliente.email }}">
+            <div class="form-text">Deixe este campo vazio para manter o email atual ({{ cliente.email }}).</div>
+        </div>
+        
+        <div class="mb-3">
+    <label for="telefone" class="form-label">Telefone (com código do país):</label>
+    <input 
+        type="tel" 
+        class="form-control" 
+        id="telefone" 
+        name="telefone" 
+        placeholder="+55 11 99999-9999"
+        value="+"
+        oninput="formatInput(this)"
+        onblur="checkEmpty(this)"
+        required
+    >
+    <div class="invalid-feedback">
+        Informe o telefone com código do país.
+    </div>
+</div>
+
+<script>
+function formatInput(input) {
+    // Pega apenas os números digitados
+    let numeros = input.value.replace(/\D/g, '');
+    
+    // Força o valor a ser sempre "+" seguido dos números
+    input.value = '+' + numeros;
+}
+
+function checkEmpty(input) {
+    // Se o usuário sair do campo e tiver apenas o "+", ou estiver vazio, garante o "+"
+    if (input.value.length <= 1) {
+        input.value = '+';
+    }
+}
+</script>
+        
+        <button type="submit" class="btn btn-warning me-2">Salvar Edições</button>
+        <a href="{% url 'listar_clientes' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
