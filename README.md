@@ -1,7 +1,9 @@
 # CRM Django - Sistema de Gestão de Clientes
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![Django](https://img.shields.io/badge/Django-4.2%2B-green)
+![Python Version](https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python)
+![Django](https://img.shields.io/badge/Django-5.x-darkgreen?style=for-the-badge&logo=django)
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)
+
 
 ## 💻 Sobre o projeto
 
